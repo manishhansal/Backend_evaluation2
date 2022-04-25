@@ -63,4 +63,11 @@ app.post('/createFixedAccount', async (req, res, next) => {
     }
 })
 
+app.delete('/fixedAccount/:fixedAccountId', async (req, res) => {
+
+    let fixedAccountId = req.params.fixedAccountId;
+    let response = await fixedAccountModel.deleteOne({_id: fixedAccountId});
+    res.json(response);
+})
+
 module.exports = app;
